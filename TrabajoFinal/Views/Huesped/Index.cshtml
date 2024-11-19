@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TrabajoFinal.Models.Huespedes>
+
+@{
+    ViewBag.Title = "Lista de Huéspedes";
+}
+
+<h2>Lista de Huéspedes</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Huésped", "Crear")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+            <th>@Html.DisplayNameFor(model => model.Edad)</th>
+            <th>@Html.DisplayNameFor(model => model.Sexo)</th>
+            <th>@Html.DisplayNameFor(model => model.Equipaje)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaIngreso)</th>
+            <th>@Html.DisplayNameFor(model => model.HoraRegistro)</th>
+            <th>@Html.DisplayNameFor(model => model.FechaSalida)</th>
+            <th>@Html.DisplayNameFor(model => model.NumeroAdultos)</th>
+            <th>@Html.DisplayNameFor(model => model.NumeroNinos)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                <td>@Html.DisplayFor(modelItem => item.Edad)</td>
+                <td>@Html.DisplayFor(modelItem => item.Sexo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Equipaje)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaIngreso)</td>
+                <td>@Html.DisplayFor(modelItem => item.HoraRegistro)</td>
+                <td>@Html.DisplayFor(modelItem => item.FechaSalida)</td>
+                <td>@Html.DisplayFor(modelItem => item.NumeroAdultos)</td>
+                <td>@Html.DisplayFor(modelItem => item.NumeroNinos)</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.IdHuesped }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.IdHuesped }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.IdHuesped })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

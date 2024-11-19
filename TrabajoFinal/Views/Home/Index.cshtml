@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Página Principal";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 50px;">
+        <h1>Bienvenido al Sistema del Hotel</h1>
+        <p>Seleccione una opción:</p>
+        <ul style="list-style: none; padding: 0;">
+            <li>
+                <a href="@Url.Action("Crear", "Huesped")" style="text-decoration: none; color: blue;">Ingresar Nuevo Huésped</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Huesped")"style="text-decoration: none; color: blue;">Ver Lista de Huéspedes</a>
+            </li>
+            <li>
+                <a href="#" style="text-decoration: none; color: blue;">Gestión de Habitaciones</a>
+            </li>
+            <!-- Agrega más vínculos aquí -->
+        </ul>
+    </div>
+</body>
+</html>

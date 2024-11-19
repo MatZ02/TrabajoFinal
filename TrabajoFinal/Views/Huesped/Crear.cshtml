@@ -1,0 +1,76 @@
+﻿@model TrabajoFinal.Models.Huespedes
+
+@{
+    ViewBag.Title = "Crear Huésped";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div style="width: 50%; margin: auto; margin-top: 50px;">
+        <h2>Crear Huésped</h2>
+        @using (Html.BeginForm("Crear", "Huesped", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            
+            <div>
+                <label for="Nombre">Nombre:</label>
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", placeholder = "Ingrese el nombre" })
+                @Html.ValidationMessageFor(model => model.Nombre)
+            </div>
+            <div>
+                <label for="Apellido">Apellido:</label>
+                @Html.TextBoxFor(model => model.Apellido, new { @class = "form-control", placeholder = "Ingrese el apellido" })
+                @Html.ValidationMessageFor(model => model.Apellido)
+            </div>
+            <div>
+                <label for="Edad">Edad:</label>
+                @Html.TextBoxFor(model => model.Edad, new { @class = "form-control", placeholder = "Ingrese la edad" })
+                @Html.ValidationMessageFor(model => model.Edad)
+            </div>
+            <div>
+                <label for="Sexo">Sexo:</label>
+                @Html.DropDownListFor(model => model.Sexo, new SelectList(new[] { "Masculino", "Femenino" }), "Seleccione", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sexo)
+            </div>
+            <div>
+                <label for="Equipaje">¿Lleva equipaje?</label>
+                @Html.CheckBoxFor(model => model.Equipaje)
+                @Html.ValidationMessageFor(model => model.Equipaje)
+            </div>
+            <div>
+                <label for="FechaIngreso">Fecha de Ingreso:</label>
+                @Html.TextBoxFor(model => model.FechaIngreso, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(model => model.FechaIngreso)
+            </div>
+            <div>
+                <label for="HoraRegistro">Hora de Registro:</label>
+                @Html.TextBoxFor(model => model.HoraRegistro, "{0:HH:mm}", new { @class = "form-control", type = "time" })
+                @Html.ValidationMessageFor(model => model.HoraRegistro)
+            </div>
+            <div>
+                <label for="FechaSalida">Fecha de Salida:</label>
+                @Html.TextBoxFor(model => model.FechaSalida, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(model => model.FechaSalida)
+            </div>
+            <div>
+                <label for="NumeroAdultos">Número de Adultos:</label>
+                @Html.TextBoxFor(model => model.NumeroAdultos, new { @class = "form-control", placeholder = "Ingrese el número de adultos" })
+                @Html.ValidationMessageFor(model => model.NumeroAdultos)
+            </div>
+            <div>
+                <label for="NumeroNinos">Número de Niños:</label>
+                @Html.TextBoxFor(model => model.NumeroNinos, new { @class = "form-control", placeholder = "Ingrese el número de niños" })
+                @Html.ValidationMessageFor(model => model.NumeroNinos)
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        }
+    </div>
+</body>
+</html>
